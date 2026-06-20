@@ -1,0 +1,96 @@
+TASK:
+You are given multiple analytical answer excerpts about the input image.
+Your task is to synthesize ALL provided answers and produce a single JSON object in the EXACT schema below.
+
+GROUND TRUTH LABEL FOR DATASET CONSTRUCTION:
+{LABEL}
+
+IMPORTANT:
+The ground-truth label is provided only for dataset construction consistency.
+Do not invent unsupported artifacts.
+For REAL images, evidence should describe realistic visual consistency.
+For AI-GENERATED images, at least one criterion must contain concrete artifact evidence supported by the Stage1 excerpts.
+
+STAGE1 ANALYTICAL EXCERPTS:
+
+[Prompt 1 Output]
+{STAGE1_OUTPUT_1}
+
+[Prompt 2 Output]
+{STAGE1_OUTPUT_2}
+
+[Prompt 3 Output]
+{STAGE1_OUTPUT_3}
+
+OUTPUT SCHEMA must match structure EXACTLY:
+{
+  "per_criterion": [
+    {
+      "criterion": "Lighting & Shadows Consistency",
+      "evidence": "your text here",
+      "aigc score": 0
+    },
+    {
+      "criterion": "Edges & Boundaries",
+      "evidence": "your text here",
+      "aigc score": 0
+    },
+    {
+      "criterion": "Texture & Resolution",
+      "evidence": "your text here",
+      "aigc score": 0
+    },
+    {
+      "criterion": "Perspective & Spatial Relationships",
+      "evidence": "your text here",
+      "aigc score": 0
+    },
+    {
+      "criterion": "Physical & Common Sense Logic",
+      "evidence": "your text here",
+      "aigc score": 0
+    },
+    {
+      "criterion": "Text & Symbols",
+      "evidence": "your text here",
+      "aigc score": 0
+    },
+    {
+      "criterion": "Human & Biological Structure Integrity",
+      "evidence": "your text here",
+      "aigc score": 0
+    },
+    {
+      "criterion": "Material & Object Details",
+      "evidence": "your text here",
+      "aigc score": 0
+    }
+  ],
+  "overall_likelihood": "Real"
+}
+
+STRICT SCORING GUIDELINES:
+- aigc score must be integer 0 or 1.
+- aigc score=0 means this criterion appears realistic or no clear AIGC artifact is supported.
+- aigc score=1 means the evidence explicitly describes an AIGC artifact or contradiction.
+- Do not assign 1 based only on vague words like "slightly odd" or "may be synthetic".
+- For REAL label:
+  - overall_likelihood must be "Real".
+  - all aigc score values should be 0 unless Stage1 gives extremely explicit artifact evidence.
+  - evidence must not invent AIGC artifacts.
+- For AI-GENERATED label:
+  - overall_likelihood must be "AI-Generated".
+  - at least one criterion must have aigc score=1.
+  - Do not mark every criterion as 1 unless Stage1 supports it.
+- If a criterion is not applicable, set aigc score=0 and explain that no relevant cue is visible.
+
+STRICT OUTPUT RULES:
+- Output ONLY the JSON object.
+- Do not output hidden reasoning.
+- Do not output explanation outside JSON.
+- Do not wrap in markdown.
+- Do not use ```json.
+- Do not add comments.
+- Preserve criterion names exactly.
+- The JSON must be parseable by Python json.loads().
+- No trailing commas.

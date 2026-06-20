@@ -1,0 +1,67 @@
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+credentials*
+secrets*
+api_key*
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
+training_logs/
+
+# Datasets and generated annotations
+dataset/
+data/
+data-*/
+output_sidset_thinkfake_*/
+
+# Models and checkpoints
+models/
+checkpoints/
+merged_*/
+quantized_*/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.bin
+
+# Deployment and experiment workspaces
+context2048_rollback/
+example1b_quant_diff_check/
+lpcvc_clean_root_workspace/
+ms_swift_codex_work/
+qpm/
+snap/
+
+# Packages, archives, and downloads
+packages/
+archives/
+downloads/
+*.qik
+*.deb
+*.tar
+*.tar.gz
+*.zip
+
+# Nested repository
+26LPCVC_Track3_Sample_Solution/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
